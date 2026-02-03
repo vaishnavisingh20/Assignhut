@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block a %}
+<head>
+    <meta charset="UTF-8">
+    <title>Sign In</title>
+</head>
+<style>
+    .color{
+        background:#aa66cc;
+        border:none;
+        border-radius:4px
+        }
+        .color:hover
+        {
+        background:white;
+        color:#aa66cc;
+        font-weight:bold;
+        }
+</style>
+<body>
+<div class="row p-5">
+    <div class="col-sm-6 p-5">
+        <center>
+        <img src="{% static 'images/a11.jpeg' %}" height="300"><br>
+   <h1 style="color:#aa66cc">NEW REGISTRATION</h1>
+            </center>
+    </div>
+     <div class="col-sm-6">
+         {% if status %}
+         <div class="alert alert-success">Your Data Is Saved Successfully</div>
+         {% endif %}
+          <form method="post" enctype="multipart/form-data" autocomplete="off">
+              {% csrf_token %}
+        <div class="input-group mb-2">
+                <i class="input-group-text">
+                    <i class="fa-solid fa-pencil"></i>
+                </i>
+                <input type="text" placeholder="Roll No." class="form-control" name="rollno" required>
+            </div>
+         <div class="input-group mb-2">
+                <i class="input-group-text">
+                    <i class="fa-solid fa-user"></i>
+                </i>
+                <input type="text" placeholder="Name" class="form-control" name="name" required>
+            </div>
+         <div class="input-group mb-2">
+                <i class="input-group-text">
+                    <i class="fa-solid fa-phone"></i>
+                </i>
+                <input type="number" placeholder="Contact Number" class="form-control" name="mobile" required>
+            </div>
+         <div class="input-group mb-2">
+                <i class="input-group-text">
+                    <i class="fa-solid fa-envelope"></i>
+                </i>
+                <input type="email" placeholder="Email ID" class="form-control" name="email" required>
+            </div>
+         <div class="input-group mb-2">
+                <i class="input-group-text">
+                    <i class="fa-solid fa-key"></i>
+                </i>
+                <input type="password" placeholder="Password" class="form-control" name="password" required>
+            </div>
+         <div class="input-group mb-2">
+                <i class="input-group-text">
+                    <i class="fa-solid fa-bars"></i>
+                </i>
+                <select name="course" id="course" class="w-75 border border-0 form-control" required>
+                    <option value="course" disabled selected>Your Course</option>
+                      <option>B.Tech (C.S)</option>
+                      <option>B.Tech (I.T)</option>
+                       <option>Diploma (C.S)</option>
+                      <option>Diploma (I.T)</option>
+                      <option>Diploma (E.C)</option>
+                      <option>B.C.A</option>
+                      <option>P.G.D.C.A</option>
+                      <option>Other</option>
+</select>
+            </div>
+         <div class="input-group mb-2">
+                <i class="input-group-text">
+                    <i class="fa-solid fa-clock"></i>
+                </i>
+                 <select name="year" id="year" class="w-75 border border-0 form-control" required>
+                        <option value="year">Your pursuing semester</option>
+                        <option>First</option>
+                        <option>Second</option>
+                        <option>Third</option>
+                        <option>Fourth</option>
+                        <option>Fifth</option>
+                        <option>Sixth</option>
+                        <option>Seventh</option>
+                        <option>Eighth</option>
+                 </select>
+         </div>
+         <div class="input-group mb-2">
+                <i class="input-group-text">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                </i>
+                <input type="file" id="picture" name="pic" accept="*/image" class="form-control" required>
+            </div>
+         <div>
+                <input type="submit" class="color text-center p-2 w-100 form-control" value="REGISTER NOW" >
+            </div>
+          </form>
+    </div>
+</div>
+</body>
+{% endblock %}

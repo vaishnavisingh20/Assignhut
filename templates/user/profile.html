@@ -1,0 +1,60 @@
+{% extends 'base.html'%}
+{% block a %}
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<style>
+    .bg{
+            background:#aa66cc;
+            height:500px;
+        width:800px;
+        }
+      .txt{
+        font-size:20px;
+        text-align:justify;
+        padding:10%;
+        }
+        .col{
+        height:280px;
+        width:350px;
+        background:white;
+        border:1px solid black;
+        box-shadow:5px 5px 5px #aa66cc;
+        margin:30% 10% 10% 0%;
+        transform:translateX(-250px);
+        box-sizing:border-box;
+        }
+</style>
+<body>
+{% if request.session.user is None %}
+<script>
+    alert('You have to log in first ')
+    window.location.href="/user/login/"
+</script>
+{% endif %}
+ <h1 class="text-center mt-5">PRO<b style="color:#aa66cc">FILE</b>&nbsp;&nbsp;<i class="far fa-user text-mycolor"></i></h1><br>
+{% for x in rdata %}
+<div class="row">
+    <div class="col-sm-1"></div>
+<div class="col-sm-8 bg txt">
+     <h1>STUDENT'S PROFILE</h1><b>
+            Roll No. : {{x.rno}}<br>
+            Name : {{x.name}}<br>
+            Mobile No. :{{x.mobile}}<br>
+            Email : {{x.email}}<br>
+            Course : {{x.course}}<br>
+            Semester : {{x.year}}<br>
+    </b>
+</div>
+    <div class="col-sm-3">
+        <div class="col ps-5 pt-4">
+      <img src="/{{x.pic}}" height="200" width="200" class="rounded-start" alt="...">
+        </div>
+    </div>
+</div><br>
+
+{% endfor %}
+</body>
+{% endblock %}

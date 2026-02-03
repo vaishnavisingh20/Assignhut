@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block a %}
+{% load static %}
+<head>
+    <title>Developer Profile</title>
+    <style>
+        .bg{
+            background:#aa66cc;
+            max-height:500
+        }
+        .mt{
+        margin-top:40%
+        }
+        .col{
+        height:280px;
+        width:450px;
+        background:white;
+        margin:30% 10% 10% 0%;
+        transform:translateX(-250px);
+        font-size:20px;
+        text-align:justify;
+        border:1px solid black;
+        padding:10%;
+        box-sizing:border-box;
+        }
+        .a{
+        background:white;
+        color:black;
+        }
+    </style>
+</head>
+<body>
+ <h1 class="text-center mt-5">DEVELOPER'S<b style="color:#aa66cc">&nbsp;PORTFOLIO</b>&nbsp;&nbsp;<i class="fa-solid fa-address-card text-mycolor"></i></h1>
+<br>
+ <div class="row">
+    <div class="col-sm-8 bg">
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-4">
+        <img src="{% static 'images/a19.jpg' %}" width="200" height="200" class="ms-5 mt-5 me-5">
+
+                <img src="{% static 'images/20.jpg' %}" width="200" height="200" class="m-5">
+                </div>
+            <div class="col-sm-4">
+        <img src="{% static 'images/a23.jpeg' %}" width="200" height="300" class="mt">
+            </div>
+            <div class="col-sm-3"></div>
+</div>
+    </div>
+    <div class="col-sm-4">
+        <div class="col a">
+            <h1>PROFILE</h1>
+            Name : Vaishnavi Singh<br>
+            Mobile No. :<a href='tel:+91-6387239729' style="text-decoration:none;color:black;"> +91 6387239729</a><br>
+            Email : <a href='mailto:singhvaishnavi834@gmail.com' style="text-decoration:none;color:black;"> singhvaishnavi834@gmail.com</a>
+        </div>
+    </div>
+</div>
+<br><br>
+</body>
+{% endblock %}

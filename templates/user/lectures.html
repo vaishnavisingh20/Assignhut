@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block a %}
+<head>
+    <meta charset="UTF-8">
+    <title>Lecture Category</title>
+</head>
+<body>
+<h1 class="text-center mt-5">LECTURE<b style="color:#aa66cc">&nbsp;VIDEOS</b>&nbsp;&nbsp;<i class="fa-solid fa-tv text-mycolor"></i></h1>
+<br>
+<div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+        <div class="row">
+            <!--start card-->
+            {% for i in ldata %}
+            <div class="col-sm-4 my-3">
+            <div class="card">
+                <iframe class="img-card-top w-100" height="315" src="{{i.vlink}}"
+                        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
+                        clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="card-body">
+
+                    <h5 class="card-title text-center">{{i.title}}</h5>
+                    <p>{{i.vdes}}</p>
+
+                </div>
+            </div>
+                </div>
+            {% endfor %}
+            <!--end card-->
+        </div>
+    </div>
+    <div class="col-sm-1"></div>
+</div>
+</body>
+{% endblock %}

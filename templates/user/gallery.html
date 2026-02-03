@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block a %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+ <h1 class="text-center mt-5">GALL<b style="color:#aa66cc">ERY</b>&nbsp;&nbsp;<i class="far fa-images text-mycolor"></i></h1>
+    </div><br>
+<div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+        <div class="row">
+            {% for x in data %}
+            <div class="col-sm-4">
+                <!--start card-->
+                <div class="card w-100">
+  <img src="/{{x.picture}}" class="card-img-top" alt="..." height="300px">
+  <div class="card-body text-center">
+    <h5 class="card-title">{{x.gdes}}</h5>
+  </div>
+</div><br>
+                <!--end card-->
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="col-sm-1"></div>
+</div>
+</body>
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block a %}
+<head>
+    <meta charset="UTF-8">
+    <title>My Assignment</title>
+</head>
+<style>
+
+     .color{
+        background:#aa66cc;
+        }
+        .color:hover
+        {
+        background:white;
+        color:#aa66cc;
+
+        box-sizing:border-box;
+        }
+</style>
+<body>
+<br>
+<h1 class="text-center">MY ASSI<b style="color:#aa66cc">GNMENT</b>&nbsp;&nbsp;<i class="fa-solid fa-pencil text-mycolor"></i></h1>
+<br>
+<div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10" style="border:1px solid purple;box-shadow:5px 5px 5px purple">
+<table class="table table-striped table-hover">
+
+    <caption class="table caption-top">List Of Assignment</caption>
+    <thead>
+  <tr>
+      <th scope="col">S.No.</th>
+      <th scope="col">Assignment Title</th>
+      <th scope="col">Subject</th>
+      <th scope="col">Assign By</th>
+      <th scope="col">Total Marks</th>
+      <th scope="col">Date</th>
+      <th scope="col">Last Date</th>
+      <th scope="col">Download File</th>
+      <th scope="col">Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% if assignment %}
+
+    {% for a in assignment %}
+    <tr>
+      <th scope="row">{{a.id}}</th>
+
+      <td>{{a.atitle}}</td>
+      <td>{{a.asub}}</td>
+      <td>{{a.assignby}}</td>
+      <td>{{a.totalmarks}}</td>
+      <td>{{a.assigndate}}</td>
+      <td>{{a.lastdate}}</td>
+        <td><a href="/{{a.attachfile}}"><button class="color border border-0" >Download</button></a></td>
+        <td><a href="/user/assignmentdetails?id={{a.id}}" style="text-decoration:none;color:black"><input type="submit" value="View Details" class="color border border-0" ></a></td>
+    </tr>
+    {% endfor %}
+    {% endif %}
+    </tbody>
+</table>
+        </div>
+    <div class="col-sm-1"></div>
+    </div>
+<br>
+</body>
+{% endblock %}

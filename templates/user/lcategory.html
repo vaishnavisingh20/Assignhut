@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block a %}
+<head>
+    <meta charset="UTF-8">
+    <title>Lecture Category</title>
+</head>
+<body>
+{% if request.session.user is None %}
+<script>
+    alert('You have to log in first ')
+    location.href="/user/login/"
+</script>
+{% endif %}
+<h1 class="text-center mt-5">LECTURE<b style="color:#aa66cc">&nbsp;VIDEOS</b>&nbsp;&nbsp;<i class="fa-solid fa-tv text-mycolor"></i></h1>
+<br>
+<div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+        <div class="row">
+            <!--start card-->
+            {% for i in ldata %}
+            <div class="col-sm-4 my-3">
+            <div class="card">
+                <img src="/{{i.cpic}}" class="img-card-top border border-4" height="300">
+                <div class="card-body">
+                    <a href="/user/lectures?msg={{i.id}}" style="text-decoration:none;color:black">
+                    <h5 class="card-title text-center">{{i.category}}</h5>
+                    </a>
+                </div>
+            </div>
+                </div>
+            {% endfor %}
+            <!--end card-->
+        </div>
+    </div>
+    <div class="col-sm-1"></div>
+</div>
+</body>
+{% endblock %}

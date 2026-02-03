@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block a %}
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment Details</title>
+    <style>
+    .color{
+        background:#aa66cc;
+        border:none;
+        border-radius:4px
+        }
+        .color:hover
+        {
+        background:white;
+        color:#aa66cc;
+        font-weight:bold;
+        }
+</style>
+</head>
+<body>
+<br>
+<h1 class="text-center">ASSIGNMENT <b style="color:#aa66cc">DETAILS</b>&nbsp;&nbsp;<i class="fa-solid fa-bars text-mycolor"></i></h1>
+
+<br>
+<form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+<div class="row">
+<div class="col-sm-1"></div>
+    {% if assignment %}
+    {% for a in assignment %}
+
+    <div class="col-sm-10" style="border:1px solid purple;box-shadow:5px 5px 5px purple">
+
+        <div class="row bg-light">
+            <div class="col-sm-4 border border-1 py-3">
+                <div class="row">
+                    <div class="col-sm-5 fw-bold">S.No</div>
+                    <div class="col-sm-7">{{a.id}}</div>
+                </div>
+            </div>
+            <div class="col-sm-4 border border-1 py-3"><div class="row">
+                    <div class="col-sm-5 fw-bold">Total Marks</div>
+                    <div class="col-sm-7">{{a.totalmarks}}</div>
+                </div></div>
+            <div class="col-sm-4 border border-1 py-3"><div class="row">
+                    <div class="col-sm-5 fw-bold">Obtained Marks</div>
+                    <div class="col-sm-7">
+                        {% if answer %}
+                        {% for ans in answer %}
+                        {{ans.marks}}
+                        {% endfor %}
+                        {% else %}
+                        NO MARKS
+                    {% endif %}
+                    </div>
+                </div></div>
+        </div>
+        <div class="row border border-1 py-3">
+            <div class="col-sm-4 fw-bold">Assignment Title</div>
+            <div class="col-sm-8">{{a.atitle}}</div>
+        </div>
+        <div class="row border border-1 py-3 bg-light">
+            <div class="col-sm-4 fw-bold">Assignment Description</div>
+            <div class="col-sm-8">{{a.adesc}}</div>
+        </div>
+        <div class="row border border-1 py-3">
+            <div class="col-sm-6"><div class="row">
+                    <div class="col-sm-4 fw-bold">Course</div>
+                    <div class="col-sm-8">{{a.course}}</div>
+                </div></div>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-4 fw-bold">Semester</div>
+                    <div class="col-sm-8">{{a.semester}}</div>
+                </div>
+            </div>
+
+        </div>
+            <div class="row border border-1 py-3  bg-light">
+            <div class="col-sm-6"><div class="row">
+                    <div class="col-sm-4 fw-bold">Assigned Date</div>
+                    <div class="col-sm-8">{{a.assigndate}}</div>
+                </div></div>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-4 fw-bold">Assigned by</div>
+                    <div class="col-sm-8">{{a.assignby}}</div>
+                </div>
+            </div>
+        </div>
+
+            <div class="row border border-1 py-3">
+            <div class="col-sm-3 fw-bold">Assignment Remark</div>
+                <div class="col-sm-9">
+                {% if answer %}
+                {% for ans in answer %}
+                <span class=" text-danger">{{ans.sremark}}</span>
+                {% endfor %}
+                {% else %}
+            <textarea rows="4" cols="30" name="remark" class="form-control" required></textarea>
+            {% endif %}
+            </div>
+        </div>
+        <div class="row border border-1 py-3  bg-light">
+            <div class="col-sm-3 fw-bold">Upload File</div>
+            <div class="col-sm-9">
+            {% if answer %}
+                {% for ans in answer %}
+            <button class="btn btn-danger">TASK SUBMITTED</button>
+            {% endfor %}
+            {% else %}
+            <input type="file" multiple name="afile" id="picture" class="form-control" required>
+            {% endif %}
+            </div>
+        </div>
+        {% if answer %}
+        <span></span>
+        {% else %}
+        <div class="row border border-1 py-3">
+            <div class="col-sm-12"><center>
+<input type="submit" value="SUBMIT NOW" class="form-control color text-center p-2 w-25 ms-4"></center>
+              </div>
+            </div>
+        {% endif %}
+<br><br>
+         </div>
+
+    {% endfor %}
+    {% endif %}
+    <div class="col-sm-1"></div>
+
+    </div>
+    <br>
+</form>
+</body>
+{% endblock %}

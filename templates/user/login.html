@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block a %}
+<head>
+    <meta charset="UTF-8">
+    <title>Student Login</title>
+ <style>
+        .c{
+        background:url({% static 'images/a9.jpg' %});
+        background-size:cover;
+        }
+        #grad{
+        min-height:500px;
+        background:red;
+        background:rgba(170,102,204,.8);
+        padding:5% 25%;
+        }
+        .color{
+        background:#aa66cc;
+        }
+        .color:hover
+        {
+        background:white;
+        color:#aa66cc;
+        font-weight:bold;
+        }
+    </style>
+</head>
+<body>
+<div class="c">
+<div id="grad">
+
+        <div class="row w-100 bg-white ">
+            <div class="col-sm-6 mt-5 mb-5 ps-5">
+                <h2 style="color:#aa66cc" class="text-center pb-4">Log In</h2>
+                <h6>Log in with your data <br>entered during your registration.</h6><br>
+                <form method="post" autocomplete="off">
+                    {% csrf_token %}
+                    <h6>Enter Your Email Address</h6>
+                <input type="text" placeholder="name@example.com" class="form-control w-100" name="email"><br>
+                    <h6>Enter Your Password</h6>
+                <input type="text" placeholder="atleast 8 characters" class="form-control w-100" name="passwd"><br>
+                <input type="submit" value="Log in" class="form-control color fw-bold w-75"><br>
+
+
+                    </form>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="row bg-light mt-5 mb-5">
+                    <div class="col-sm-12">
+                        <br><br>
+                        <h6 class="text-center">Nice to see you again</h6><br><br>
+                        <h1 style="color:#aa66cc;text-align:center">Welcome Back</h1>
+                    </div>
+                    <div class="col-sm-12 me-">
+                <img src="{% static 'images/a10.jpg' %}" alt="..." height="200" width="200">
+            </div>
+                    </div>
+        </div>
+
+</div>
+</div>
+</div>
+</body>
+{% endblock %}
