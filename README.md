@@ -71,3 +71,11 @@ python manage.py createsuperuser
 
 Then visit:
 http://127.0.0.1:8000/admin
+
+---
+## Screenshots
+<img width="1917" height="847" alt="image" src="https://github.com/user-attachments/assets/74ef94a6-7730-4bf1-bc0f-cd4cbf51837c" />
+<img width="1919" height="820" alt="image" src="https://github.com/user-attachments/assets/d71ef356-f728-4250-9f78-1c02f05cb12a" />
+<img width="1916" height="723" alt="image" src="https://github.com/user-attachments/assets/0fc38e6e-fc92-4700-9de6-2c9e018b7753" />
+<img width="1917" height="820" alt="image" src="https://github.com/user-attachments/assets/40da3984-3ce2-4574-82b3-4268ce66ed1f" />
+
